@@ -50,11 +50,7 @@ git clone https://github.com/YOUR-USERNAME/neural-dungeon.git
 cd neural-dungeon
 ```
 
-If you already have this folder locally, just open it in PowerShell:
-
-```powershell
-cd "D:\Muzammil\Misc\Projects & Dev\Neural Dungeon"
-```
+If you already have this folder locally, just open it in by double-click:
 
 ## Run Commands
 
@@ -84,60 +80,6 @@ Start-Process "http://localhost:5500/neural-dungeon.html"
 | Attack | Left mouse click |
 | Dodge | `Space` |
 | Restart after win/death | `Regenerate Dungeon` button |
-
-## Screenshots
-
-Add screenshots to a `screenshots/` folder and link them here.
-
-```text
-screenshots/
-+-- gameplay.png
-+-- game-over.png
-```
-
-Example Markdown:
-
-```markdown
-![Gameplay](screenshots/gameplay.png)
-![Game Over](screenshots/game-over.png)
-```
-
-## GitHub Publishing From PowerShell
-
-Run these commands from PowerShell after you have reviewed the files:
-
-```powershell
-cd "D:\Muzammil\Misc\Projects & Dev\Neural Dungeon"
-
-git init
-git branch -M main
-git status
-
-git add README.md .gitignore neural-dungeon.html
-git commit -m "Initial commit"
-
-gh repo create neural-dungeon --public --source . --remote origin --push
-```
-
-Use `--private` instead of `--public` if you want the repository to be private:
-
-```powershell
-gh repo create neural-dungeon --private --source . --remote origin --push
-```
-
-## Files That Should Not Be Pushed
-
-This project currently has no `.env` file, API key file, database file, dependency folder, or build output folder.
-
-Do not push these if you add them later:
-
-- `.env` or `.env.*`
-- API keys, tokens, credentials, or private config files
-- Local database files such as `.db`, `.sqlite`, or `.sqlite3`
-- Dependency folders such as `node_modules/` or `vendor/`
-- Build output folders such as `dist/`, `build/`, or `out/`
-- Local editor folders such as `.vscode/` or `.idea/`
-- Logs, archives, backups, and temporary files
 
 ## Author
 

@@ -62,6 +62,8 @@ cd neural-dungeon
 
 No dependency installation is required.
 
+If you already have this folder locally, open `neural-dungeon.html` directly or use the PowerShell run command below.
+
 ## Run Commands
 
 Open the game directly in your default browser:

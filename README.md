@@ -1,25 +1,34 @@
 # Neural Dungeon
 
-Neural Dungeon is a single-file HTML5 Canvas dungeon crawler game. It runs directly in a modern browser with no framework, build step, package manager, CDN, or external asset dependency.
+Neural Dungeon is a fast, dependency-free HTML5 Canvas dungeon crawler. The entire game is packaged in one HTML file and runs directly in a browser without a framework, package manager, build step, CDN, or external asset folder.
 
 ## Features
 
 - Fullscreen real-time dungeon crawler rendered with the Canvas 2D API
-- Procedural dungeon generation using BSP-style room splitting and carved corridors
-- Randomized runs seeded from browser randomness
-- Player movement with `WASD` or arrow keys
+- Procedural dungeon generation with BSP-style room splitting and carved corridors
+- Randomized dungeon runs using browser-generated seed entropy
+- Keyboard movement with `WASD` or arrow keys
 - Mouse-based melee attacks and `Space` dodge movement
-- Enemy types with different behavior:
+- Three enemy behavior types:
   - Grunts chase and attack in melee range
   - Archers keep distance and fire projectiles
-  - Sentinels patrol rooms with vision cones
+  - Sentinels patrol rooms with directional vision cones
 - A* pathfinding for enemy navigation
-- Health, score, kills, room multiplier, and active boost HUD
-- Pickup items for health, speed, and damage boosts
+- Pickups for health, speed, and damage boosts
 - Fog-of-war minimap with explored rooms, enemies, player position, and exit marker
-- Win and death overlay with dungeon regeneration
-- Particle effects, screen shake, attack arcs, projectiles, and FPS meter
-- Responsive layout for desktop and smaller screens
+- HUD for neural integrity, score, kills, room multiplier, active boosts, and FPS
+- Win/death flow with dungeon regeneration
+- Canvas particles, attack arcs, projectiles, screen shake, and responsive layout
+
+## Screenshots
+
+### Desktop Gameplay
+
+![Neural Dungeon desktop gameplay](screenshots/gameplay-desktop.png)
+
+### Mobile Layout
+
+![Neural Dungeon mobile layout](screenshots/gameplay-mobile.png)
 
 ## Tech Stack
 
@@ -27,50 +36,47 @@ Neural Dungeon is a single-file HTML5 Canvas dungeon crawler game. It runs direc
 - CSS3
 - JavaScript
 - Canvas 2D API
-- Web Crypto API for run seed entropy
-- Browser DOM events for keyboard, mouse, resize, and UI interaction
+- Web Crypto API
+- Browser DOM events
 
 ## Folder Structure
 
 ```text
 Neural Dungeon/
-+-- neural-dungeon.html   # Complete game: HTML, CSS, and JavaScript
-+-- README.md             # Project documentation
-+-- .gitignore            # Files Git should ignore
++-- neural-dungeon.html
++-- README.md
++-- .gitignore
++-- screenshots/
+    +-- gameplay-desktop.png
+    +-- gameplay-mobile.png
 ```
 
 ## Installation
 
-No dependency installation is required.
-
-To get the project locally from GitHub later:
+Clone the GitHub repository:
 
 ```powershell
-git clone https://github.com/YOUR-USERNAME/neural-dungeon.git
+git clone https://github.com/muzzammilminhas/neural-dungeon.git
 cd neural-dungeon
 ```
 
-If you already have this folder locally, just open it in PowerShell:
-
-```powershell
-cd "D:\Muzammil\Misc\Projects & Dev\Neural Dungeon"
-```
+No dependency installation is required.
 
 ## Run Commands
 
-Run directly in your default browser:
+Open the game directly in your default browser:
 
 ```powershell
 Start-Process ".\neural-dungeon.html"
 ```
 
-Optional local server run, useful if you later add separate assets:
+Run with a local development server:
 
 ```powershell
 python -m http.server 5500
 ```
 
-Then open:
+Open the local server URL:
 
 ```powershell
 Start-Process "http://localhost:5500/neural-dungeon.html"
@@ -85,51 +91,40 @@ Start-Process "http://localhost:5500/neural-dungeon.html"
 | Dodge | `Space` |
 | Restart after win/death | `Regenerate Dungeon` button |
 
-## Screenshots
+## Git Commands
 
-Add screenshots to a `screenshots/` folder and link them here.
-
-```text
-screenshots/
-+-- gameplay.png
-+-- game-over.png
-```
-
-Example Markdown:
-
-```markdown
-![Gameplay](screenshots/gameplay.png)
-![Game Over](screenshots/game-over.png)
-```
-
-## GitHub Publishing From PowerShell
-
-Run these commands from PowerShell after you have reviewed the files:
+Update GitHub with local changes:
 
 ```powershell
 cd "D:\Muzammil\Misc\Projects & Dev\Neural Dungeon"
-
-git init
-git branch -M main
 git status
-
-git add README.md .gitignore neural-dungeon.html
-git commit -m "Initial commit"
-
-gh repo create neural-dungeon --public --source . --remote origin --push
+git add README.md screenshots/gameplay-desktop.png screenshots/gameplay-mobile.png
+git commit -m "Update README with screenshots"
+git push origin main
 ```
 
-Use `--private` instead of `--public` if you want the repository to be private:
+Update your local project from GitHub:
 
 ```powershell
-gh repo create neural-dungeon --private --source . --remote origin --push
+cd "D:\Muzammil\Misc\Projects & Dev\Neural Dungeon"
+git status
+git pull origin main
+```
+
+If Git says you have local changes before pulling, save them temporarily, pull, then restore them:
+
+```powershell
+git status
+git stash push -m "Local work before pull"
+git pull origin main
+git stash pop
 ```
 
 ## Files That Should Not Be Pushed
 
-This project currently has no `.env` file, API key file, database file, dependency folder, or build output folder.
+The current project does not contain secret files, API keys, environment files, database files, dependency folders, or build output folders.
 
-Do not push these if you add them later:
+Do not commit these file types if they are added in future work:
 
 - `.env` or `.env.*`
 - API keys, tokens, credentials, or private config files
@@ -137,8 +132,12 @@ Do not push these if you add them later:
 - Dependency folders such as `node_modules/` or `vendor/`
 - Build output folders such as `dist/`, `build/`, or `out/`
 - Local editor folders such as `.vscode/` or `.idea/`
-- Logs, archives, backups, and temporary files
+- Logs, backups, temporary files, and compressed archives
+
+## Repository
+
+https://github.com/muzzammilminhas/neural-dungeon
 
 ## Author
 
-Muzammil
+Muzammil Minhas
